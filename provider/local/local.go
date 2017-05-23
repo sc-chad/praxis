@@ -81,6 +81,10 @@ func (p *Provider) Init() error {
 		return err
 	}
 
+	if err := p.createCA(); err != nil {
+		return err
+	}
+
 	return nil
 }
 
