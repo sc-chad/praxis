@@ -139,6 +139,8 @@ func (v Services) MarshalYAML() (interface{}, error) {
 		command["production"] = s.Command.Production
 		service["command"] = command
 
+		service["environment"] = s.Environment
+
 		services[s.Name] = service
 	}
 
