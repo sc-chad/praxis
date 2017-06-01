@@ -40,7 +40,7 @@ func Load(data []byte, env Environment) (*Manifest, error) {
 
 	m.Environment = env
 
-	if err := m.applyDefaults(); err != nil {
+	if err := m.ApplyDefaults(); err != nil {
 		return nil, err
 	}
 
@@ -100,7 +100,7 @@ func (m *Manifest) Validate() error {
 	return nil
 }
 
-func (m *Manifest) applyDefaults() error {
+func (m *Manifest) ApplyDefaults() error {
 	for i, s := range m.Services {
 		if s.Build.Path == "" && s.Image == "" {
 			m.Services[i].Build.Path = "."
